@@ -1,0 +1,159 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'serve' ]
+2 info using npm@2.9.1
+3 info using node@v0.12.3
+4 verbose install initial load of /usr/local/lib/package.json
+5 verbose readDependencies loading dependencies from /usr/local/lib/package.json
+6 silly cache add args [ 'serve', null ]
+7 verbose cache add spec serve
+8 silly cache add parsed spec { raw: 'serve',
+8 silly cache add   scope: null,
+8 silly cache add   name: 'serve',
+8 silly cache add   rawSpec: '',
+8 silly cache add   spec: '*',
+8 silly cache add   type: 'range' }
+9 silly addNamed serve@*
+10 verbose addNamed "*" is a valid semver range for serve
+11 silly addNameRange { name: 'serve', range: '*', hasData: false }
+12 silly mapToRegistry name serve
+13 silly mapToRegistry using default registry
+14 silly mapToRegistry registry https://registry.npmjs.org/
+15 silly mapToRegistry uri https://registry.npmjs.org/serve
+16 verbose addNameRange registry:https://registry.npmjs.org/serve not in flight; fetching
+17 verbose request uri https://registry.npmjs.org/serve
+18 verbose request no auth needed
+19 info attempt registry request try #1 at 16:14:18
+20 verbose request id 8e0d23965fc06df6
+21 http request GET https://registry.npmjs.org/serve
+22 http 200 https://registry.npmjs.org/serve
+23 silly get cb [ 200,
+23 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+23 silly get     etag: '"311VP43OPE2S8GWZZ6Y5FVC2R"',
+23 silly get     'content-type': 'application/json',
+23 silly get     'cache-control': 'max-age=60',
+23 silly get     'content-length': '14630',
+23 silly get     'accept-ranges': 'bytes',
+23 silly get     date: 'Fri, 16 Oct 2015 21:14:18 GMT',
+23 silly get     via: '1.1 varnish',
+23 silly get     age: '0',
+23 silly get     connection: 'keep-alive',
+23 silly get     'x-served-by': 'cache-atl6233-ATL',
+23 silly get     'x-cache': 'HIT',
+23 silly get     'x-cache-hits': '1',
+23 silly get     'x-timer': 'S1445030058.637284,VS0,VE26',
+23 silly get     vary: 'Accept' } ]
+24 verbose get saving serve to /home/vagrant/.npm/registry.npmjs.org/serve/.cache.json
+25 silly addNameRange number 2 { name: 'serve', range: '*', hasData: true }
+26 silly addNameRange versions [ 'serve',
+26 silly addNameRange   [ '0.0.1',
+26 silly addNameRange     '0.0.2',
+26 silly addNameRange     '0.0.3',
+26 silly addNameRange     '0.0.4',
+26 silly addNameRange     '0.0.5',
+26 silly addNameRange     '1.0.0',
+26 silly addNameRange     '1.0.1',
+26 silly addNameRange     '1.0.2',
+26 silly addNameRange     '1.0.3',
+26 silly addNameRange     '1.1.0',
+26 silly addNameRange     '1.2.0',
+26 silly addNameRange     '1.3.0',
+26 silly addNameRange     '1.4.0' ] ]
+27 silly addNamed serve@1.4.0
+28 verbose addNamed "1.4.0" is a plain semver version for serve
+29 silly mapToRegistry name serve
+30 silly mapToRegistry using default registry
+31 silly mapToRegistry registry https://registry.npmjs.org/
+32 silly mapToRegistry uri https://registry.npmjs.org/serve
+33 verbose addRemoteTarball https://registry.npmjs.org/serve/-/serve-1.4.0.tgz not in flight; adding
+34 verbose addRemoteTarball [ 'https://registry.npmjs.org/serve/-/serve-1.4.0.tgz',
+34 verbose addRemoteTarball   'e35f3ce6b42586b7f3ded7b5b0a31a01bb0e1005' ]
+35 info retry fetch attempt 1 at 16:14:19
+36 info attempt registry request try #1 at 16:14:19
+37 http fetch GET https://registry.npmjs.org/serve/-/serve-1.4.0.tgz
+38 http fetch 200 https://registry.npmjs.org/serve/-/serve-1.4.0.tgz
+39 silly fetchAndShaCheck shasum e35f3ce6b42586b7f3ded7b5b0a31a01bb0e1005
+40 verbose addTmpTarball /tmp/npm-1774-c6ef359c/registry.npmjs.org/serve/-/serve-1.4.0.tgz not in flight; adding
+41 verbose addTmpTarball already have metadata; skipping unpack for serve@1.4.0
+42 silly cache afterAdd serve@1.4.0
+43 verbose afterAdd /home/vagrant/.npm/serve/1.4.0/package/package.json not in flight; writing
+44 verbose afterAdd /home/vagrant/.npm/serve/1.4.0/package/package.json written
+45 silly install resolved [ { name: 'serve',
+45 silly install resolved     version: '1.4.0',
+45 silly install resolved     description: 'Simple command-line file / directory server built with connect',
+45 silly install resolved     keywords: [ 'static', 'server', 'connect' ],
+45 silly install resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+45 silly install resolved     preferGlobal: true,
+45 silly install resolved     homepage: 'https://github.com/visionmedia/serve',
+45 silly install resolved     repository: { type: 'git', url: 'https://github.com/visionmedia/serve.git' },
+45 silly install resolved     dependencies:
+45 silly install resolved      { connect: '2.3.x',
+45 silly install resolved        stylus: '*',
+45 silly install resolved        jade: '*',
+45 silly install resolved        'less-middleware': '*',
+45 silly install resolved        commander: '0.6.1' },
+45 silly install resolved     bin: { serve: './bin/serve' },
+45 silly install resolved     bugs: { url: 'https://github.com/visionmedia/serve/issues' },
+45 silly install resolved     _id: 'serve@1.4.0',
+45 silly install resolved     dist:
+45 silly install resolved      { shasum: 'e35f3ce6b42586b7f3ded7b5b0a31a01bb0e1005',
+45 silly install resolved        tarball: 'http://registry.npmjs.org/serve/-/serve-1.4.0.tgz' },
+45 silly install resolved     _from: 'serve@*',
+45 silly install resolved     _npmVersion: '1.4.4',
+45 silly install resolved     _npmUser: { name: 'tjholowaychuk', email: 'tj@vision-media.ca' },
+45 silly install resolved     maintainers: [ [Object] ],
+45 silly install resolved     directories: {},
+45 silly install resolved     _shasum: 'e35f3ce6b42586b7f3ded7b5b0a31a01bb0e1005',
+45 silly install resolved     _resolved: 'https://registry.npmjs.org/serve/-/serve-1.4.0.tgz' } ]
+46 info install serve@1.4.0 into /usr/local/lib
+47 info installOne serve@1.4.0
+48 verbose installOne of serve to /usr/local/lib not in flight; installing
+49 verbose lock using /home/vagrant/.npm/_locks/serve-6627f39219900269.lock for /usr/local/lib/node_modules/serve
+50 silly install write writing serve 1.4.0 to /usr/local/lib/node_modules/serve
+51 verbose unbuild lib/node_modules/serve
+52 silly gentlyRm /usr/local/lib/node_modules/serve is being purged from base /usr/local
+53 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/serve
+54 verbose tar unpack /home/vagrant/.npm/serve/1.4.0/package.tgz
+55 verbose tar unpacking to /usr/local/lib/node_modules/serve
+56 silly gentlyRm /usr/local/lib/node_modules/serve is being purged
+57 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/serve
+58 silly gunzTarPerm modes [ '775', '664' ]
+59 error tar.unpack untar error /home/vagrant/.npm/serve/1.4.0/package.tgz
+60 verbose unlock done using /home/vagrant/.npm/_locks/serve-6627f39219900269.lock for /usr/local/lib/node_modules/serve
+61 verbose fstream_path /usr/local/lib/node_modules/serve
+62 verbose fstream_type Directory
+63 verbose fstream_class DirWriter
+64 verbose stack Error: EACCES, mkdir '/usr/local/lib/node_modules/serve'
+64 verbose stack     at Error (native)
+65 verbose fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+65 verbose fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
+65 verbose fstream_stack FSReqWrap.oncomplete (fs.js:95:15)
+66 verbose cwd /vagrant/Fear-Film/lib
+67 error Linux 3.16.0-30-generic
+68 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "-g" "serve"
+69 error node v0.12.3
+70 error npm  v2.9.1
+71 error path /usr/local/lib/node_modules/serve
+72 error code EACCES
+73 error errno -13
+74 error Error: EACCES, mkdir '/usr/local/lib/node_modules/serve'
+74 error     at Error (native)
+74 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/serve']
+74 error   errno: -13,
+74 error   code: 'EACCES',
+74 error   path: '/usr/local/lib/node_modules/serve',
+74 error   fstream_type: 'Directory',
+74 error   fstream_path: '/usr/local/lib/node_modules/serve',
+74 error   fstream_class: 'DirWriter',
+74 error   fstream_stack:
+74 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+74 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+74 error      'FSReqWrap.oncomplete (fs.js:95:15)' ] }
+75 error Please try running this command again as root/Administrator.
+76 verbose exit [ -13, true ]
+77 verbose unbuild lib/node_modules/serve
+78 silly gentlyRm /usr/local/lib/node_modules/serve is being purged from base /usr/local
+79 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/serve
