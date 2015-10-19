@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Movie App</title>
+    <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="styles/main.css"> -->
+    <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+</head>
+<body>
+    <div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">Search Films
+			 <form class="well form-search" id="search-by-title-form" onsubmit="return false;">
+          <fieldset>
+              <legend>By Title</legend>
+          </fieldset>
+          <div>
+              <label class="control-label" for="t">Title:</label>
+              <input type="text" id="t" name="t" class="input-small">
+              <button id="search-by-title-button" type="button" class="btn-sm btn-primary">Search</button>
+              <button id="search-by-title-reset" type="reset" class="btn-sm">Reset</button>
+          </div>
+          <div class="hide" id="search-by-title-request">
+              <br />
+              <p>Request:</p>
+              <pre class="alert alert-box"><a href="javascript:;" target="_blank"></a></pre>
+          </div>
+          <div id="search-by-title-progress" class="hide progress progress-info progress-striped active">
+              <div class="progress-bar" style="width: 100%;">
+              </div>
+          </div>
+          <div class="hide" id="search-by-title-response">
+              <p>Response:</p>
+              <pre class="alert alert-success" style="margin-bottom: 0px;"></pre>
+          </div>
+          </form>
+		</div>
+    <div role="tabpanel" class="tab-pane" id="profile">My Profile</div>
+  </div>
+
+</div>
+
+    <div class="container" id="output">
+      <div id="populatee">
+        This is where stuff should populate
+      </div>
+    </div>
+</body>
+<script data-main="javascripts/mainpage" src="lib/bower_components/requirejs/require.js"></script>
+</html>
