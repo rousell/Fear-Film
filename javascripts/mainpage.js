@@ -28,52 +28,23 @@ requirejs(
 
       // ------- search functionality -------
 			$("#search-by-title-button").click(function(e) {
+
+				var globalJson;
+
 				e.preventDefault();
 				console.log('CLICKED!');
-        console.log(URL)
         //var globalFilmData;
         search.filmFinder()
           .then(function(json_data) {
            console.log("checking json data in mainpage", json_data)
+           globalJson = json_data;
            var array = $.map(json_data, function(value) {
              return value;
            });
-           console.log(value);
-           // globalFilmData = json_data;
-            // globalFilmData.map() = filmArray;
-            // console.log("film array:", filmArray)
-
-            // types = Object.keys ( types ).map(key => types[ key ])
-            // allMovies = Object.keys ( allMovies ).map(key => allMovies[ key ])
-
-
-            // console.log("working?")
-
-
-            // var moviesArray = allMovies.map(movie => {
-            //   movie.type = _.find(types, { id:movie.movieType }).label;
-            //   return movie;
-            // });
-           // globalFilmData = filmData;
-           // console.log("globalFilmData", globalFilmData);
-            $('#populatee').html("test", movieTpl({json_data}))
-            console.log("Mainpage finished executing")
+           }).then(function(){
+           	console.log("bla");
+           	console.log("Mainpage finished executing", globalJson);
+           	$('#populatee').html(movieTpl(globalJson));
           });
-
-      })
-      // ------- end search functionality -------
+      });
     });
-
-
-
-      /* search.filmFinder()
-        .then(function(fData) {
-          console.log("fData = ", fData)
-          $('#populatee').html(fData.title);
-        })
-			console.log(URL);
-			console.log('movietitle', movietitle);
-      $("#populatee").html(URL);
-    })
-    });
-*/
