@@ -5,16 +5,23 @@ requirejs.config({
         'jquery': '../lib/bower_components/jquery/dist/jquery.min',
         'lodash': '../lib/bower_components/lodash/lodash.min',
         'hbs': '../lib/bower_components/require-handlebars-plugin/hbs',
-        'bootstrap': '../lib/bower_components/bootstrap/dist/js/bootstrap.min'
+        'bootstrap': '../lib/bower_components/bootstrap/dist/js/bootstrap.min',
+        'bootstrap-star-rating': '../lib/bower_components/bootstrap-star-rating/js/star-rating.min'
     },
     shim: {
-        'bootstrap': ['jquery']
+        'bootstrap': ['jquery'],
+        'bootstrap-star-rating': ['bootstrap']
     }
 });
 
 requirejs(
-    ["jquery", "hbs", "bootstrap", "search", "q", 'hbs!../templates/movies'],
-    function($, Handlebars, bootstrap, search, Q, movieTpl) {
+    ["jquery", "hbs", "bootstrap", "search", "q", 'hbs!../templates/movies', "bootstrap-star-rating"],
+    function($, Handlebars, bootstrap, search, Q, movieTpl, stars) {
+
+      $("#stars").rating({
+        min: 0,
+        max: 10,
+      });
 
 
       // ------- Tab functionality -------
@@ -63,7 +70,6 @@ requirejs(
       })
       // ------- end search functionality -------
     });
-
 
 
       /* search.filmFinder()
