@@ -4,7 +4,7 @@ define(function(require) {
   return {
     filmFinder: function() {
     var deferred = Q.defer();
-    var baseUrl= "http://www.omdbapi.com/?t=";
+    var baseUrl= "http://www.omdbapi.com/?s=";
     var movietitle= $("#t").val();
     var URL= baseUrl+movietitle;
     console.log("variables loaded");
