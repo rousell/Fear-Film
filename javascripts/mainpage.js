@@ -13,8 +13,8 @@ requirejs.config({
 });
 
 requirejs(
-    ["jquery", "hbs", "bootstrap", "search", "q", 'hbs!../templates/movies'],
-    function($, Handlebars, bootstrap, search, Q, movieTpl) {
+    ["jquery", "hbs", "bootstrap", "search", "q", 'hbs!../templates/movies', 'addfilm'],
+    function($, Handlebars, bootstrap, search, Q, movieTpl, addfilm) {
 
 
       // ------- Tab functionality -------

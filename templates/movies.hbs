@@ -1,10 +1,10 @@
 {{#each Search}}
-  <div>
-    <h2>{{ Title }}</h2>
-    <h2>{{ Year }}</h2>
-    <img src= http://img.omdbapi.com/?i={{ imdbID }}&apikey=8513e0a1 class='img-responsive'>
-    <button>
-      Add Film
-    </button>
+  <div class="row">
+  	<div class="row-sm-12">
+	    <h2>{{ Title }}</h2>
+	    <h2>{{ Year }}</h2>
+	    <img src= http://img.omdbapi.com/?i={{ imdbID }}&apikey=8513e0a1 class='img-responsive'>
+	    <button class='addFilm' id="{{imdbID}}">Add Film</button>
+    </div>
   </div>
 {{/each}}
