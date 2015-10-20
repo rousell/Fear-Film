@@ -13,38 +13,38 @@ requirejs.config({
 });
 
 requirejs(
-  ["jquery", "hbs", "bootstrap", "search", "q", 'hbs!../templates/movies'],
-  function($, Handlebars, bootstrap, search, Q, movieTpl)   {
+  ["jquery", "hbs", "bootstrap", "search", "q", 'hbs!../templates/movies', 'findid'],
+  function($, Handlebars, bootstrap, search, Q, movieTpl, findID) {
     
-    //var firebaseRef = new Firebase("https://fear-film.firebaseio.com/");
+    var firebaseRef = new Firebase("https://fear-film.firebaseio.com/");
 
-    //var authData = firebaseRef.getAuth();
+    var authData = firebaseRef.getAuth();
 
-    // if(authData) {
-    //   console.log("Authenticated user with uid:", authData);
-    //   }      
-    console.log('print me')
-    $("button").on("click", ".addFilm", function(e) {
+    var userUID = authData.uid;
+
+    var myGlobalFilm;
+
+    if(authData) {
+      console.log("Authenticated user with uid:", userUID);
+    }
+
+    $(document).on("click", ".addFilm", function(e) {
         e.preventDefault();
         console.log('you clicked add');
-        // var filmInfo = {
-        //     title: $('h1').val(),
-        //     year: $('h2').val(),
-        //     img: $('img').val()
-        // };
-        //console.log(filmInfo)
-
-
-    // var addForm = firebaseRef.set(filmInfo,
-    //     function(error, getAuth){
-    //         if(error){
-    //             console.log('error adding film info:', error);
-    //         }else{
-    //             console.log("success with uid", getAuth.uid);
-    //             firebaseRef.child(getAuth.uid).set(filmInfo);
-    //             window.location = "/mainpage.html"
-    //         }
-    //   });
+        findID.idFinder(this.id).then(function(myFilm){
+          var filmInfo = {
+            Title: myFilm.Title,
+            Year: myFilm.Year,
+            Poster: myFilm.Poster,
+            Rating: 0,
+            Watched: false
+          }
+          console.log('myFilm=', myFilm);
+          myGlobalFilm = myFilm;
+          }).then(function(){
+            console.log("myGlobalFilm", myGlobalFilm);
+            console.log("firebase", firebaseRef);
+            firebaseRef.child(userUID).child(myGlobalFilm.imdbID).set(myGlobalFilm);
+          });
+        });
   });
-});
-
