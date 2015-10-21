@@ -20,9 +20,9 @@ requirejs(
 
       $("#stars").rating({
         min: 0,
-        max: 10,
+        max: 5,
       });
-
+      
 
       // ------- Tab functionality -------
     	$('#myTabs a').click(function (e) {
@@ -31,8 +31,8 @@ requirejs(
 			})
       // ------- End tab functionality -------
 
-
-
+  
+});
       // ------- search functionality -------
 			$("#search-by-title-button").click(function(e) {
 
