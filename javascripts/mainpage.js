@@ -35,7 +35,7 @@ requirejs(
       // ------- End tab functionality -------
 
   
-});
+};
       // ------- search functionality -------
 			$("#search-by-title-button").click(function(e) {
 
@@ -57,9 +57,9 @@ requirejs(
            	$('#populatee').html(movieTpl(globalJson));
           });
 
-      })
+    
       // ------- end search functionality -------
     });
-
+});
 
   
