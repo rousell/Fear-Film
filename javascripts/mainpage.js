@@ -17,6 +17,9 @@ requirejs.config({
 requirejs(
     ["jquery", "hbs", "bootstrap", "search", "q", 'hbs!../templates/movies', "bootstrap-star-rating"],
     function($, Handlebars, bootstrap, search, Q, movieTpl, stars) {
+    ["jquery", "hbs", "bootstrap", "search", "q", 'hbs!../templates/movies', 'addfilm'],
+    function($, Handlebars, bootstrap, search, Q, movieTpl, addfilm) {
+
 
       $("#stars").rating({
         min: 0,
