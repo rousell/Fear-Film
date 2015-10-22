@@ -1,3 +1,4 @@
+
 .show_image:hover {
   opacity: .5;
   position: relative
@@ -25,3 +26,5 @@
     <button type="button" class="close deleteButton" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <img src="https://s-media-cache-ak0.pinimg.com/236x/d0/99/aa/d099aa09c64a69c55a65e75aa2266ecd.jpg">
   </div>*/
+
+

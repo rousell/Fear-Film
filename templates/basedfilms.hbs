@@ -3,9 +3,13 @@
     <h2 class="hbsTitle">{{ Title }}</h2>
     <h2 class="hbsYear">{{ Year }}</h2>
     <img src= http://img.omdbapi.com/?i={{ imdbID }}&apikey=8513e0a1 class='img-responsive'>
+<<<<<<< HEAD
     <button class="seenIt" id="{{imdbID}}">Add Film</button>
     <input id="starRating{{imdbID}}" class="stars" data-min="0" data-max="5" data-step="1">
     <button type="button" class="close deleteButton" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
+=======
+    <button class='iWatched' id="{{imdbID}}">I've Seen It</button>
+>>>>>>> 211b6b1d61d839735235eb9765b9c8af9a4c41c9
   </div>
 {{/each}}
