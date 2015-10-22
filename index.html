@@ -1,14 +1,26 @@
 <!doctype html>
-<html lang="en">
 
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Movie App</title>
+
   <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="styles/main.css">
+
 </head>
-<body>
-  <div role="tabpanel" class="tab-pane active" id="home">
+<body class="container-fluid">
+
+  <div id="header">
+    <div id="splashNav"></div>
+    <div id="mainNav"></div>
+  </div>
+
+  <div id="mainContent">
+    <div id="contentDiv"></div>
+  </div>
+
+  <!-- <div role="tabpanel" class="tab-pane active" id="home">
     <form class="well form-search" id="search-by-title-form" onsubmit="return false;">
       <fieldset>
           <legend>By Title</legend>
@@ -23,16 +35,16 @@
     </form>
   </div>
 
-  <div>
+  <div> -->
   <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
+  <!-- <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#unwatched" aria-controls="unwatched" role="tab" data-toggle="tab">Unwatch</a></li>
     <li role="presentation"><a href="#watched" aria-controls="watched" role="tab" data-toggle="tab">To Watch</a></li>
     <li role="presentation"><a href="#fivestars" aria-controls="fivestars" role="tab" data-toggle="tab">5 Stars</a></li>
-  </ul>
+  </ul> -->
 
   <!-- Tab panes -->
-          <div id="search-by-title-progress" class="hide progress progress-info progress-striped active">
+          <!-- <div id="search-by-title-progress" class="hide progress progress-info progress-striped active">
               <div class="progress-bar" style="width: 100%;">
               </div>
           </div>
@@ -57,8 +69,9 @@
     <div role="tabpanel" class="tab-pane" id="watched">...</div>
     <div role="tabpanel" class="tab-pane" id="fivestars">...</div>
   </div>
-</div>
+</div> -->
 
-</body>
-<script data-main="javascripts/app" src="lib/bower_components/requirejs/require.js"></script>
+
+  <script data-main="javascripts/app" src="lib/bower_components/requirejs/require.js"></script>
+  </body>
 </html>
