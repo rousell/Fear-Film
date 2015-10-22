@@ -6,7 +6,7 @@ define(["jquery", "hbs", "bootstrap", "search", "q", 'hbs!../templates/movies', 
   return {
   	loadRating: function() {
   		require(["hbs!../templates/basedfilms"], function(movieTpl({
-  		$("#")	
+  		$("#").html(movieTpl({}))	
   		$(".stars").rating({
         min: 0,
         max: 5,
@@ -19,7 +19,7 @@ define(["jquery", "hbs", "bootstrap", "search", "q", 'hbs!../templates/movies', 
         	5: "Shut up and take my money!"
         }
       });
-  		})
+  		
   	}
   }
 
