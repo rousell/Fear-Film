@@ -16,25 +16,26 @@ requirejs.config({
 });
 
 requirejs(
-    ["jquery", "hbs", "bootstrap", "search", "q", "bootstrap-star-rating", "addfilm", "findid", "search", "signup", "stars", "userAuth"],
-    function($, Handlebars, bootstrap, search, Q, stars, addfilm, findid, search, signup, stars, userAuth)
+    ["jquery", "hbs", "bootstrap", "search", "q", "bootstrap-star-rating", "templates"],
+    function($, Handlebars, bootstrap, search, Q, stars, templates) {
 
+      $("#contentDiv").html(templates.logIn);
 
       $("#stars").rating({
         min: 0,
-        max: 5,
+        max: 10,
       });
 
 
       // ------- Tab functionality -------
     	$('#myTabs a').click(function (e) {
-		    e.preventDefault()
-		  $(this).tab('show')
-			})
+		    e.preventDefault();
+		  $(this).tab('show');
+			});
       // ------- End tab functionality -------
 
 
-};
+
       // ------- search functionality -------
 			$("#search-by-title-button").click(function(e) {
 
@@ -45,7 +46,7 @@ requirejs(
         //var globalFilmData;
         search.filmFinder()
           .then(function(json_data) {
-           console.log("checking json data in mainpage", json_data)
+           console.log("checking json data in mainpage", json_data);
            globalJson = json_data;
            var array = $.map(json_data, function(value) {
              return value;

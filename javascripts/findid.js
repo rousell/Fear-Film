@@ -1,7 +1,9 @@
 define(function(require) {
   var Q = require("q");
   var $ = require("jquery");
+
   return {
+
     idFinder: function(omdbid) {
     var deferred = Q.defer();
     var baseUrl= "http://www.omdbapi.com/?i=";

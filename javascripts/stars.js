@@ -1,12 +1,10 @@
 define(["jquery", "hbs", "bootstrap", "search", "q", 'hbs!../templates/movies', "bootstrap-star-rating"],
-    function($, Handlebars, bootstrap, search, Q, movieTpl, stars) {
-    ["jquery", "hbs", "bootstrap", "search", "q", 'hbs!../templates/movies', 'addfilm'],
-    function($, Handlebars, bootstrap, search, Q, movieTpl, addfilm], function() {
-	
+    function($, Handlebars, bootstrap, search, Q, movieTpl, stars)
+
   return {
   	loadRating: function() {
   		require(["hbs!../templates/basedfilms"], function(movieTpl({
-  		$("#").html(movieTpl({}))	
+  		$("#").html(movieTpl({}))
   		$(".stars").rating({
         min: 0,
         max: 5,
@@ -19,8 +17,8 @@ define(["jquery", "hbs", "bootstrap", "search", "q", 'hbs!../templates/movies', 
         	5: "Shut up and take my money!"
         }
       });
-  		
-  	}
+
+      })
   }
 
 
