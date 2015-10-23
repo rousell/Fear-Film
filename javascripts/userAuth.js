@@ -1,44 +1,52 @@
-define(["jquery", "firbase"], function($, Firebase) {
+define(["jquery", "firebase", "q"], function($, fb, Q) {
 
-	$(document).click("#signUp", function)
-		var ref = new Firebase("https://fear-film.firebaseio.com/");
+	return {
 
-	  var newUser ={
-	  	email: $('#email').val()
-	  	passW: $("#pwd").val()	  	
-	  }
+			signUp: function() {
+				console.log('signUp called');
 
-		ref.createUser({
-	    email: newUser.email,
-	    password: newUser.passW
+			var ref = new Firebase("https://fear-film.firebaseio.com/");
 
-		}, function(error, userData) {
-			if (error) {
-				console.log("User not nonexistant ", error)
-			} else {
-				console.log("You now matter in this world ", userData)
-			}
-		}	
-});
+		  var newUser = {};
+		 	newUser.email = $('#email').val();
+		 	newUser.passW = $("#pwd").val();
 
 
-// login User
-$(document).click("#login", function()) {
-	var userMem ={
-		mail: $('#email').val()
-	  passW: $("#pwd").val()	
-	}
+			ref.createUser({
+		    password: newUser.passW,
+		    email: newUser.email
+			}, function(error, userData) {
+				if (error) {
+					console.log('Error creating account:' + error);
+				} else {
+					console.log("You now matter in this world ", userData);
+				}
 
-	var ref =new Firebase("https://fear-film.firebaseio.com/")
+			}); //end callback
 
-	ref.authWithPassword({
-		email: userMem.mail,
-		password: userMem.passW
-	}, function (error, authData) {
-     if (error) {
-     	console.log("Wrong ", error)
-     }, else {
-     	console.log("login successful", authData)
-     }
-	} 
-}
+		},
+
+		logIn: function() {
+			var deferred = Q.defer();
+			var userMem = {};
+			userMem.mail = $('#lEmail').val();
+			userMem.passW = $("#lPassword").val();
+
+			var ref = new Firebase("https://fear-film.firebaseio.com/");
+
+			ref.authWithPassword({
+				email: userMem.mail,
+				password: userMem.passW
+			}, function (error, authData) {
+		    if (error) {
+		     //handle error
+		    } else {
+		     	deferred.resolve(authData.uid);
+		    }
+		  }); //end callback
+
+		 return deferred.promise;
+		} // end logIn
+
+	};// end return
+});//end define
