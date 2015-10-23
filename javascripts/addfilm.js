@@ -29,7 +29,7 @@ define(function(require) {
               Poster: myFilm.Poster,
               Rating: 0,
               Watched: false
-            }
+            };
             console.log('myFilm=', myFilm);
             myGlobalFilm = myFilm;
             }).then(function(){
@@ -40,5 +40,5 @@ define(function(require) {
           });
 
     }
-  }
+  };
   });

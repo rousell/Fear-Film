@@ -1,30 +1,100 @@
+@import url(https://fonts.googleapis.com/css?family=Creepster);
+body {
+  color: #333; }
 
-.show_image:hover {
-  opacity: .5;
-  position: relative
-}
+body {
+  color: #384047;
+  background-image: url("http://www.bloodyfilm.com/wp-content/uploads/2013/10/carnival.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; }
 
-.show_image .delete {
-    position: absolute;
-    top: 2px;
-    right: 3px;
-    z-index: 100;
-}
+h1#pageTitle {
+  font-family: 'Creepster', sans-serif;
+  color: rgba(0, 51, 0, 0.5);
+  text-shadow: 2px 2px 8px red;
+  font-size: 50px; }
 
-.show_image {
-  max-width: 250px;
-  max-height: 250px;
-}
+form {
+  max-width: 300px;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: #f4f7f8;
+  border-radius: 8px;
+  background-color: black;
+  border: 10px solid rgba(0, 51, 0, 0.5); }
 
- /*<div class="show_image">
-    <button><span class="delete">X</span></button>
-    <img src="https://s-media-cache-ak0.pinimg.com/236x/d0/99/aa/d099aa09c64a69c55a65e75aa2266ecd.jpg">
-  </div>*/
+h1 {
+  margin: 0 0 30px 0;
+  text-align: center;
+  font-family: 'Creepster', sans-serif;
+  color: rgba(0, 51, 0, 0.5);
+  text-shadow: 2px 2px 8px red;
+  padding-top: 40px; }
 
-/*
-    <div class="show_image">
-    <button type="button" class="close deleteButton" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <img src="https://s-media-cache-ak0.pinimg.com/236x/d0/99/aa/d099aa09c64a69c55a65e75aa2266ecd.jpg">
-  </div>*/
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea,
+select {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: darkorange;
+  color: black;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  margin-bottom: 30px; }
 
+select {
+  padding: 6px;
+  height: 32px;
+  border-radius: 2px; }
 
+button {
+  padding: 19px 39px 18px 39px;
+  color: #FFF;
+  background-color: rgba(0, 51, 0, 0.5);
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border: 5px solid forestgreen;
+  border-radius: 5px;
+  width: 100%;
+  font-family: 'Creepster', sans-serif;
+  color: black;
+  text-shadow: 2px 2px 8px red;
+  font-size: 40px; }
+
+fieldset {
+  margin-bottom: 30px;
+  border: none; }
+
+legend {
+  font-size: 1.4em;
+  margin-bottom: 10px; }
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 18px;
+  color: rgba(0, 51, 0, 0.5);
+  text-align: center; }
+
+label.light {
+  font-weight: 300;
+  display: inline; }
+
+@media screen and (min-width: 480px) {
+  form {
+    max-width: 480px; }
+
+  .form-group {
+    font-size: 18px;
+    color: rgba(0, 51, 0, 0.5);
+    text-align: center; } }
+
+/*# sourceMappingURL=main.css.map */
