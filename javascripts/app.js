@@ -16,8 +16,8 @@ requirejs.config({
 });
 
 requirejs(
-    ["jquery", "hbs", "bootstrap", "search", "q", "bootstrap-star-rating", "stars", "templates", "userAuth", "library"],
-    function($, Handlebars, bootstrap, search, Q, starRating, stars, templates, userAuth, library) {
+    ["jquery", "hbs", "bootstrap", "search", "q", "bootstrap-star-rating", "stars", "templates", "userAuth", "library", "dev"],
+    function($, Handlebars, bootstrap, search, Q, starRating, stars, templates, userAuth, library, dev) {
 
   //When the page loads: show log in and sign up buttons
   $("#contentDiv").html(templates.welcome);
@@ -51,6 +51,13 @@ requirejs(
         library.populateTabs();
       });
   });
+
+   dev.logIn()
+     .then(function(uid){
+
+          $("#contentDiv").html(templates.main);
+          library.populateTabs();
+        });
 
 
 
