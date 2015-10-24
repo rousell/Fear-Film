@@ -16,8 +16,8 @@ requirejs.config({
 });
 
 requirejs(
-    ["jquery", "hbs", "bootstrap", "search", "q", "bootstrap-star-rating", "templates", "userAuth", "library"],
-    function($, Handlebars, bootstrap, search, Q, stars, templates, userAuth, library) {
+    ["jquery", "hbs", "bootstrap", "search", "q", "bootstrap-star-rating", "stars", "templates", "userAuth", "library"],
+    function($, Handlebars, bootstrap, search, Q, starRating, stars, templates, userAuth, library) {
 
   //When the page loads: show log in and sign up buttons
   $("#contentDiv").html(templates.welcome);
@@ -100,7 +100,8 @@ requirejs(
         e.preventDefault();
         var omdbid = $(this).attr('omdbid');
         library.addMovie(omdbid);
-        $(this).hide();
+        $("#rating"+omdbid).html(templates.stars);
+        stars.loadRating(omdbid);
   });//end add handler
 
 
