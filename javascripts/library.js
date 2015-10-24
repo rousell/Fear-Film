@@ -11,6 +11,7 @@ define(["jquery", "firebase", "q", "lodash", "search"], function($, fb, Q, _, se
 
       search.getMovieData(movieID)
       	.then(function(myFilm){
+      		myFilm.active = true;
 	       	myFilm.userRating = -1;
           ref.child(userUID + "/library/" + movieID).set(myFilm);
 	      });
@@ -43,7 +44,11 @@ define(["jquery", "firebase", "q", "lodash", "search"], function($, fb, Q, _, se
     	});// end  firebase snapshot
 
   		return deferred.promise;
-		} //end check
+		}, //end check
+
+		populateTabs: function(){
+			console.log('populate tabs');
+		}
 
   }; //end Return
 });//end Define

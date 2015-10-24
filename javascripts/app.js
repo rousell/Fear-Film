@@ -48,7 +48,7 @@ requirejs(
       .then(function(uid){
 
         $("#contentDiv").html(templates.main);
-
+        library.populateTabs();
       });
   });
 
