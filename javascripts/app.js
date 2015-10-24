@@ -88,9 +88,11 @@ requirejs(
               if (thisMovieRating == -2) {
                 $(this).html('<button class="addFilm" omdbid="'+thisMovieID+'">Add Film</button>');
               } else if (thisMovieRating == -1) {
-                $(this).html('<p>Not Yet Watched</p>');
+                $(this).html(templates.stars);
+                stars.loadRating(thisMovieID, thisMovieRating);
               } else {
-                $(this).html('<p>Rating: ' + thisMovieRating);
+                $(this).html(templates.stars);
+                stars.loadRating(thisMovieID, thisMovieRating);
               }
 
             });//end each
@@ -107,8 +109,36 @@ requirejs(
         e.preventDefault();
         var omdbid = $(this).attr('omdbid');
         library.addMovie(omdbid);
-        $("#rating"+omdbid).html(templates.stars);
-        stars.loadRating(omdbid);
+
+        //////REDO THE WHOLE DAMN SEARCH
+
+  var searchTemplate = templates.basedFilms;
+    //search returns a promise with json_data from OMDB
+    search.filmFinder() //returns search object from omdb
+      .then(function(searchData) {
+        library.check(searchData) //adds user ratings -2 (default) -1 (not Watched) 0-10 (Watched)
+          .then(function(filteredSearchData){
+            $('#searchResults').html(searchTemplate(filteredSearchData));
+            //check user rating and add in correct display
+            $('div.userRating').each(function(){
+
+              var thisMovieRating = $(this).attr('rating');
+              var thisMovieID = $(this).attr('imdbID');
+
+              if (thisMovieRating == -2) {
+                $(this).html('<button class="addFilm" omdbid="'+thisMovieID+'">Add Film</button>');
+              } else {
+                $(this).html(templates.stars);
+                stars.loadRating(thisMovieID, thisMovieRating);
+              }
+
+            });//end each
+
+          });
+
+      });
+        ///////REDO THE WHOLE DAMN SEARCH OVER
+
   });//end add handler
 
 

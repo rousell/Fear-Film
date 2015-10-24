@@ -1,4 +1,4 @@
-define(["jquery", "firebase", "q", "lodash", "search", "templates"], function($, fb, Q, _, search, templates) {
+define(["jquery", "firebase", "q", "lodash", "search", "templates", "stars"], function($, fb, Q, _, search, templates, stars) {
 
 	var ref = new Firebase("https://fear-film.firebaseio.com/");
 
@@ -25,7 +25,7 @@ define(["jquery", "firebase", "q", "lodash", "search", "templates"], function($,
       var userUID = authData.uid;
       console.log('userUID', userUID);
 
-  		ref.child(userUID+'/library/').on("value", function(snapshot){
+  		ref.child(userUID+'/library/').once("value", function(snapshot){
 
     	  var userMovies = snapshot.val();
     	  var allUserMovies = _.keys(userMovies);
@@ -152,7 +152,21 @@ define(["jquery", "firebase", "q", "lodash", "search", "templates"], function($,
           $("#stars10").html(movieTemplate({Search: stars10}));
 
 
+          $('div.userRating').each(function(){
+              var thisMovieRating = $(this).attr('rating');
+              var thisMovieID = $(this).attr('imdbID');
 
+              if (thisMovieRating == -2) {
+                $(this).html('<button class="addFilm" omdbid="'+thisMovieID+'">Add Film</button>');
+              } else if (thisMovieRating == -1) {
+                $(this).append(templates.stars);
+                stars.loadRating(thisMovieID, thisMovieRating);
+              } else {
+                $(this).html(templates.stars);
+                stars.loadRating(thisMovieID, thisMovieRating);
+              }
+
+            });//end each
 
      	}); //end firebase snapshot
 		} // end populateTabs

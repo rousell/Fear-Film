@@ -5,7 +5,7 @@ define(["jquery", "hbs", "bootstrap", "search", "q", "templates", "bootstrap-sta
 
   return {
 
-  	loadRating: function(movieID) {
+  	loadRating: function(movieID, movieRating) {
 
       var authData = ref.getAuth();
       var userUID = authData.uid;
@@ -15,25 +15,20 @@ define(["jquery", "hbs", "bootstrap", "search", "q", "templates", "bootstrap-sta
         max: 10,
         step: 1,
         showClear: true,
-        size: "md",
+        size: "xs",
+      });
+
+      if (movieRating == -1){
+        movieRating = 0;
+      }
+      $("#rating"+movieID+ " .starRating").rating('update', movieRating);
+
+      $("#rating"+movieID+ " .starRating").on('rating.change', function(e, value, caption){
+        console.log(value);
+        ref.child(userUID+"/library/"+movieID+"/userRating").set(value);
       });
 
       }, //end loadrating
-
-    editRating: function(movieID) {
-      $(".starRating").on('rating.change', function(event, value, caption) {
-        console.log(value);
-        console.log(caption);
-
-        var newRating = $('#rating' +movieID).val();
-        ref.child("Users/"+currentUID+"/library/"+movieID+"/userRating").set(newRating);
-
-      });
-
-
-    }
-
-
 
   }; //end return
 
