@@ -5,7 +5,7 @@ define(["jquery", "hbs", "bootstrap", "search", "q", "templates", "bootstrap-sta
 
   	loadRating: function() {
 
-      $(#starRating).html(templates.stars);
+      $('#starRating').html(templates.stars);
 
 
 

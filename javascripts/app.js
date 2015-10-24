@@ -16,23 +16,23 @@ requirejs.config({
 });
 
 requirejs(
-    ["jquery", "hbs", "bootstrap", "search", "q", "bootstrap-star-rating", "templates", "userAuth"],
-    function($, Handlebars, bootstrap, search, Q, stars, templates, userAuth) {
+    ["jquery", "hbs", "bootstrap", "search", "q", "bootstrap-star-rating", "templates", "userAuth", "library"],
+    function($, Handlebars, bootstrap, search, Q, stars, templates, userAuth, library) {
 
   //When the page loads: show log in and sign up buttons
   $("#contentDiv").html(templates.welcome);
 
-  //show log in
+  //show log in form on login button click
   $(document).on('click', '.showLogIn', function(){
     $("#contentDiv").html(templates.logIn);
   });
 
-  //show sign up
+  //show sign up form on sign up button click
   $(document).on('click', '.showSignUp', function(){
     $("#contentDiv").html(templates.signUp);
   });
 
-  //signUp just signs up
+  //signUp when form is filled out just signs up
   $(document).on('click', '#signUp', function(e){
     e.preventDefault();
     userAuth.signUp();
@@ -49,13 +49,12 @@ requirejs(
 
         $("#contentDiv").html(templates.main);
 
-
-      })
+      });
   });
 
 
 
-      //$("#contentDiv").html(templates.main);
+
 
 
       // $("#stars").rating({
@@ -63,38 +62,48 @@ requirejs(
       //   max: 10,
       // });
 
+   // ------- search functionality -------
+  $(document).on('click', "#search-by-title-button", function(e) {
+    e.preventDefault();
+    var searchTemplate = templates.basedFilms;
+    //search returns a promise with json_data from OMDB
+    search.filmFinder() //returns search object from omdb
+      .then(function(searchData) {
+        library.check(searchData) //adds user ratings -2 (default) -1 (not Watched) 0-10 (Watched)
+          .then(function(filteredSearchData){
+            $('#searchResults').html(searchTemplate(filteredSearchData));
+            //check user rating and add in correct display
+            $('div.userRating').each(function(){
 
-      // ------- Tab functionality -------
-   //  	$('#myTabs a').click(function (e) {
-		 //    e.preventDefault();
-		 //  $(this).tab('show');
-			// });
-      // ------- End tab functionality -------
+              var thisMovieRating = $(this).attr('rating');
+              var thisMovieID = $(this).attr('imdbID');
 
+              if (thisMovieRating == -2) {
+                $(this).html('<button class="addFilm" omdbid="'+thisMovieID+'">Add Film</button>');
+              } else if (thisMovieRating == -1) {
+                $(this).html('<p>Not Yet Watched</p>');
+              } else {
+                $(this).html('<p>Rating: ' + thisMovieRating);
+              }
 
+            });//end each
 
-      // ------- search functionality -------
-			$(document).on('click', "#search-by-title-button", function(e) {
-				e.preventDefault();
-
-        var globalJson;
-        //var globalFilmData;
-
-        //search returns a promise with json_data from OMDB
-        search.filmFinder()
-          .then(function(json_data) {
-           searchObject = json_data;
-           var searchArray = $.map(json_data, function(value) {
-             return value;
-           });
-           searchTemplate = templates.basedFilms;
-           console.log(searchTemplate);
-           console.log(searchObject);
-          $('#searchResults').html(searchTemplate(searchObject));
           });
 
-      // ------- end search functionality -------
-    });//end search handler
+      });
+
+
+  });//end search handler
+
+   // ------- addMovie functionality -------
+    $(document).on("click", ".addFilm", function(e) {
+        e.preventDefault();
+        var omdbid = $(this).attr('omdbid');
+        library.addMovie(omdbid);
+        $(this).hide();
+  });//end add handler
+
+
 
 });
 

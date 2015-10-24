@@ -1,41 +1,48 @@
-<div role="tabpanel" class="tab-pane active" id="home">
-  <form class="well form-search" id="search-by-title-form" onsubmit="return false;">
-    <fieldset>
-        <legend>Searh By Title</legend>
-    </fieldset>
-    <div>
-        <label class="control-label" for="t">Title:</label>
-        <input type="text" id="t" name="t" class="input-small">
-        &nbsp;&nbsp;
-        <button id="search-by-title-button" type="button" class="btn-sm btn-primary">Search</button>
-        <button id="search-by-title-reset" type="reset" class="btn-sm">Reset</button>
-    </div>
-  </form>
-</div>
 
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
-  <li role="presentation" class="active"><a href="#watchListTab" aria-controls="watchListTab" role="tab" data-toggle="tab">Watch List</a></li>
+  <li role="presentation" class="active"><a href="#searchTab" aria-controls="searchTab" role="tab" data-toggle="tab">Search</a></li>
+  <li role="presentation"><a href="#watchListTab" aria-controls="watchListTab" role="tab" data-toggle="tab">Watch List</a></li>
   <li role="presentation"><a href="#viewedTab" aria-controls="viewedTab" role="tab" data-toggle="tab">Viewed Films</a></li>
   <li role="presentation"><a href="#fiveStarsTab" aria-controls="fiveStarsTab" role="tab" data-toggle="tab">5 Stars</a></li>
 </ul>
 
   <!-- Tab panes -->
 
-<div class="container">
+<div class="tab-content">
 
-  <div id="searchResults">
-  SearchResults
+  <div role="tabpanel" class="tab-pane active" id="searchTab">
+
+    <div>
+      <form class="well form-search" id="search-by-title-form" onsubmit="return false;">
+        <fieldset>
+            <legend>Search By Title</legend>
+        </fieldset>
+        <div>
+            <label class="control-label" for="t">Title:</label>
+            <input type="text" id="t" name="t" class="input-small">
+            &nbsp;&nbsp;
+            <button id="search-by-title-button" type="button" class="btn-sm btn-primary">Search</button>
+            <button id="search-by-title-reset" type="reset" class="btn-sm">Reset</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="searchResults"></div>
   </div>
 
-  <div role="tabpanel" id="watchListTab">Watch List
+  <div role="tabpanel" class="tab-pane" id="watchListTab">Watch List
   </div>
 
-  <div role="tabpanel" id="viewedTab">Viewed Tabs
+  <div role="tabpanel" class="tab-pane" id="viewedTab">Viewed Tabs
   </div>
 
-  <div role="tabpanel" id="fiveStarsTab">Five Stars
+  <div role="tabpanel" class="tab-pane" id="fiveStarsTab">Five Stars
   </div>
 
   </div>
 </div>
+
+
+<div>
+

@@ -4,8 +4,9 @@ define(["hbs",
         "hbs!../templates/logIn",
         "hbs!../templates/movies",
         "hbs!../templates/basedfilms",
-        "hbs!../templates/main"],
+        "hbs!../templates/main",
         "hbs!../templates/stars"],
+
 function(handlebars, welcome, signUpTemplate, logInTemplate, moviesTemplate, basedfilmsTemplate, main, starsTemplate) {
 
   var templates = {};
