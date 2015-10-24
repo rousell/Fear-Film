@@ -1,9 +1,13 @@
-define(["jquery", "hbs", "bootstrap", "search", "q", 'hbs!../templates/movies', "bootstrap-star-rating"],
-    function($, Handlebars, bootstrap, search, Q, movieTpl, stars) {
+define(["jquery", "hbs", "bootstrap", "search", "q", "templates", "bootstrap-star-rating"],
+    function($, Handlebars, bootstrap, search, Q, templates, stars) {
 
   return {
 
   	loadRating: function() {
+
+      $(#starRating).html(templates.stars);
+
+
 
   		// require(["hbs!../templates/basedfilms"], function(movieTpl({
   		// $("#").html(movieTpl({}))

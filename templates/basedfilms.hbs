@@ -5,7 +5,7 @@
     <h2 class="hbsYear">{{ Year }}</h2>
     <img src= "http://img.omdbapi.com/?i={{ imdbID }}&apikey=8513e0a1" class='img-responsive'>
     <button class="addFilm" id="{{imdbID}}">Add Film</button>
-    <input id="starRating{{imdbID}}" class="stars" data-min="0" data-max="10" data-step="1">
+    <div id="starRating"></div>
     <button type="button" class="close deleteButton" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   </div>
 {{/each}}

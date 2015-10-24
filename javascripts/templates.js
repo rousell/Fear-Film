@@ -5,7 +5,8 @@ define(["hbs",
         "hbs!../templates/movies",
         "hbs!../templates/basedfilms",
         "hbs!../templates/main"],
-function(handlebars, welcome, signUpTemplate, logInTemplate, moviesTemplate, basedfilmsTemplate, main) {
+        "hbs!../templates/stars"],
+function(handlebars, welcome, signUpTemplate, logInTemplate, moviesTemplate, basedfilmsTemplate, main, starsTemplate) {
 
   var templates = {};
   templates.welcome = welcome;
@@ -14,6 +15,7 @@ function(handlebars, welcome, signUpTemplate, logInTemplate, moviesTemplate, bas
   templates.movies = moviesTemplate;
   templates.basedFilms = basedfilmsTemplate;
   templates.main = main;
+  templates.stars = starsTemplate;
 
   return templates;
 
