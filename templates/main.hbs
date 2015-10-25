@@ -38,18 +38,30 @@
   </div>
 
   <div role="tabpanel" class="tab-pane" id="fiveStarsTab">Rating
-    <div id="ratingSelector"></div>
-      <div id="stars0"></div>
-      <div id="stars1"></div>
-      <div id="stars2"></div>
-      <div id="stars3"></div>
-      <div id="stars4"></div>
-      <div id="stars5"></div>
-      <div id="stars6"></div>
-      <div id="stars7"></div>
-      <div id="stars8"></div>
-      <div id="stars9"></div>
-      <div id="stars10"></div>
+    <input type="range" id="ratingRange" min="0" max="10" step="1" list="ratings" value="0">
+    <datalist id="ratings">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+      <option>7</option>
+      <option>8</option>
+      <option>9</option>
+      <option>10</option>
+    </datalist>
+    <div class='ratingDiv' id="stars0"></div>
+    <div class='ratingDiv' id="stars1"></div>
+    <div class='ratingDiv' id="stars2"></div>
+    <div class='ratingDiv' id="stars3"></div>
+    <div class='ratingDiv' id="stars4"></div>
+    <div class='ratingDiv' id="stars5"></div>
+    <div class='ratingDiv' id="stars6"></div>
+    <div class='ratingDiv' id="stars7"></div>
+    <div class='ratingDiv' id="stars8"></div>
+    <div class='ratingDiv' id="stars9"></div>
+    <div class='ratingDiv' id="stars10"></div>
   </div>
 
   </div>

@@ -141,8 +141,19 @@ requirejs(
 
   });//end add handler
 
+//////HANDLER FOR RATING TAB
 
+  $(document).on('click', '#ratingRange', function () {
 
+    selectedRating = $(this).val();
+    $('.ratingDiv').hide();
+    console.log(selectedRating);
+    divToShow = "#stars" + selectedRating;
+    $(divToShow).show();
+
+  });
+
+//end rating change handler
 });
 
 
