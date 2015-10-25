@@ -10,20 +10,30 @@ define(["jquery", "firebase", "q", "lodash", "search", "templates", "stars"], fu
       var userUID = authData.uid;
 
       search.getMovieData(movieID)
-      	.then(function(myFilm){
-      		myFilm.active = true;
-	       	myFilm.userRating = -1;
+        .then(function(myFilm){
+          myFilm.active = true;
+          myFilm.userRating = -1;
           ref.child(userUID + "/library/" + movieID).set(myFilm);
-	      });
+        });
 
       }, //end add Movie
 
+    removeMovie: function(movieID) {
+
+    var authData = ref.getAuth();
+    var userUID = authData.uid;
+
+    ref.child(userUID + "/library/" + movieID + "/active").set(false);
+
+    }, //end remove Movie
+
     check: function(searchData){
+
+      activeData = {};
 
     	var deferred = Q.defer();
       var authData = ref.getAuth();
       var userUID = authData.uid;
-      console.log('userUID', userUID);
 
   		ref.child(userUID+'/library/').once("value", function(snapshot){
 
@@ -31,12 +41,25 @@ define(["jquery", "firebase", "q", "lodash", "search", "templates", "stars"], fu
     	  var allUserMovies = _.keys(userMovies);
     	  searchData.Search.forEach(function(movie){
 	        movie.userRating = -2;
+          movie.active = true;
 
   	      if (allUserMovies.indexOf(movie.imdbID) !== -1) {
     	      movie.userRating = userMovies[movie.imdbID].userRating;
+            movie.active = userMovies[movie.imdbID].active;
       	  }
 
+
+
+
      		}); //end forEach
+//////Need a loadash filter to only show "active" is true
+      for (i = 0; i < searchData.Search.length; i++) {
+        if (searchData.Search[i].active === false) {
+          console.log('false triggered');
+          console.log(searchData.Search[i]);
+          delete searchData.Search[i];
+        }
+      }
 
       	deferred.resolve(searchData);
 
@@ -64,8 +87,8 @@ define(["jquery", "firebase", "q", "lodash", "search", "templates", "stars"], fu
           return 0;
           });
 
-        return alphabetizedData
-      }
+        return alphabetizedData;
+      };
 
       ref.child(userUID +'/library/').on("value", function(snapshot){
 
@@ -93,7 +116,6 @@ define(["jquery", "firebase", "q", "lodash", "search", "templates", "stars"], fu
 
 
       	  userLibraryKeys.forEach(function(key){
-            console.log(userLibraryKeys);
 
             if(userLibrary[key].active){
 
@@ -137,10 +159,7 @@ define(["jquery", "firebase", "q", "lodash", "search", "templates", "stars"], fu
             } //end if
           }); //end for Each
 
-          console.log(unwatchedMovies);
-          console.log(watchedMovies);
-          console.log('stars 0', stars0);
-          console.log('stars1', stars1);
+
 
           $("#watchListTab").html(movieTemplate({Search: alphabetizeByTitle(unwatchedMovies)}));
           $("#viewedTab").html(movieTemplate({Search: alphabetizeByTitle(watchedMovies)}));

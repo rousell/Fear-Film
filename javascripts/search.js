@@ -7,7 +7,7 @@ define(function(require) {
     var deferred = Q.defer();
     var baseUrl= "http://www.omdbapi.com/?s=";
     var movietitle= $("#t").val();
-    var urlEnd = "&type=movie"
+    var urlEnd = "&type=movie";
     var URL= baseUrl+movietitle + urlEnd;
       $.ajax({ url: URL })
         .done(function(json_data) {
