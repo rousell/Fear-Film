@@ -87,6 +87,9 @@ requirejs(
 
               if (thisMovieRating == -2) {
                 $(this).html('<button class="addFilm" omdbid="'+thisMovieID+'">Add Film</button>');
+              } else if (thisMovieRating === "") {
+                console.log($(this).parent()[0]);
+                $(this).parent()[0].remove();
               } else if (thisMovieRating == -1) {
                 $(this).html(templates.stars);
                 stars.loadRating(thisMovieID, thisMovieRating);
@@ -127,6 +130,9 @@ requirejs(
 
               if (thisMovieRating == -2) {
                 $(this).html('<button class="addFilm" omdbid="'+thisMovieID+'">Add Film</button>');
+              } else if (thisMovieRating === "") {
+                console.log($(this).parent()[0]);
+                $(this).parent()[0].remove();
               } else {
                 $(this).html(templates.stars);
                 stars.loadRating(thisMovieID, thisMovieRating);
@@ -154,6 +160,22 @@ requirejs(
   });
 
 //end rating change handler
+
+//////HANDLER FOR Delete Button
+
+  $(document).on('click', '.deleteButton', function () {
+
+    var omdbid = $(this).attr('omdbid');
+    console.log(omdbid);
+    library.removeMovie(omdbid);
+    console.log($(this).parent()[0]);
+    $(this).parent()[0].remove();
+
+  });
+
+//end rating change handler
+
+
 });
 
 

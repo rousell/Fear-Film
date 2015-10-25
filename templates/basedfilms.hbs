@@ -3,7 +3,7 @@ Search Results
 	<div class="col-md-4 col-sm-6">
     <h2 class="hbsTitle">{{ Title }}</h2>
     <h2 class="hbsYear">{{ Year }}</h2>
-    <button type="button" class="close deleteButton" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <button type="button" class="close deleteButton" omdbid="{{imdbID}}" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" >&times;</span></button>
     <img src= "http://img.omdbapi.com/?i={{ imdbID }}&apikey=8513e0a1" class='img-responsive'>
  		<div id="rating{{imdbID}}" class="userRating" rating="{{userRating}}" imdbID="{{imdbID}}"></div>
   </div>
