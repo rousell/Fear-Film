@@ -64,8 +64,8 @@ define(["jquery", "firebase", "q", "lodash", "search", "templates", "stars"], fu
           return 0;
           });
 
-        return alphabetizedData
-      }
+        return alphabetizedData;
+      };
 
       ref.child(userUID +'/library/').on("value", function(snapshot){
 
