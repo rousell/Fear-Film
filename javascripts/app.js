@@ -61,7 +61,11 @@ requirejs(
 
 // log out
   $(document).on('click', '.logOut', function(){
-    $("#contentDiv").html(templates.welcome);
+    e.preventDefault();
+    userAuth.logOut()
+      .then(function(uid){
+        $("#contentDiv").html(templates.welcome);
+      })
   });
 
    // ------- search functionality -------
