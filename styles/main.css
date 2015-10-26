@@ -109,6 +109,10 @@ label.light {
     margin-right: 0; }
 
   span.showSignUp, span.showLogIn {
-    color: #bb0a1e; } }
+    color: #bb0a1e; }
+
+  button.deleteButton {
+    text-align: right;
+    font-size: 3em; } }
 
 /*# sourceMappingURL=main.css.map */
