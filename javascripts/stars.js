@@ -28,6 +28,10 @@ define(["jquery", "hbs", "bootstrap", "search", "q", "templates", "bootstrap-sta
         ref.child(userUID+"/library/"+movieID+"/userRating").set(value);
       });
 
+      $("#rating"+movieID+ " .starRating").on('rating.clear', function(e){
+        ref.child(userUID+"/library/"+movieID+"/userRating").set(-1);
+      });
+
       }, //end loadrating
 
   }; //end return
