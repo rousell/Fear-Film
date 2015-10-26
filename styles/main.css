@@ -4,9 +4,10 @@ body {
 
 body {
   color: #D3D3D3;
-  background-image: url("http://www.bloodyfilm.com/wp-content/uploads/2013/10/carnival.jpg");
+  background: url("/styles/images/dark_horror_movie_monster.jpg") no-repeat center center fixed;
   background-repeat: no-repeat;
-  background-size: cover; }
+  background-size: cover;
+  font-family: 'Creepster', sans-serif; }
 
 h1#pageTitle {
   font-family: 'Creepster', sans-serif;
@@ -95,6 +96,16 @@ label.light {
   .form-group {
     font-size: 18px;
     color: rgba(0, 51, 0, 0.5);
-    text-align: center; } }
+    text-align: center; }
+
+  ul.nav-tabs > li > a {
+    color: rgba(116, 185, 116, 0.7);
+    text-shadow: 2px 2px 8px red;
+    font-size: 1.4em; }
+
+  ul.nav-tabs > li.logOut {
+    float: right;
+    margin-left: 10px;
+    margin-right: 0; } }
 
 /*# sourceMappingURL=main.css.map */

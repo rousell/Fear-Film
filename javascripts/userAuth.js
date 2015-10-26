@@ -51,7 +51,17 @@ define(["jquery", "firebase", "q"], function($, fb, Q) {
 
 			 return deferred.promise;
 			} // end if
-		} //end logIn
+		}, //end logIn
 
-	};// end return
+		logOut: function(){
+
+			var ref = new Firebase("https://fear-film.firebaseio.com/");
+			var deferred = Q.defer();
+
+			ref.unauth();
+
+      return deferred.promise;
+     }
+
+	}; // end return
 });//end define

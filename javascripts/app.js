@@ -53,21 +53,16 @@ requirejs(
   });
 
    dev.logIn()
-     .then(function(uid){
+    .then(function(uid){
 
           $("#contentDiv").html(templates.main);
           library.populateTabs();
-        });
+    });
 
-
-
-
-
-
-      // $("#stars").rating({
-      //   min: 0,
-      //   max: 10,
-      // });
+// log out
+  $(document).on('click', '.logOut', function(){
+    $("#contentDiv").html(templates.welcome);
+  });
 
    // ------- search functionality -------
   $(document).on('click', "#search-by-title-button", function(e) {
