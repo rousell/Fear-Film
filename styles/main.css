@@ -11,7 +11,7 @@ body {
 
 h1#pageTitle {
   font-family: 'Creepster', sans-serif;
-  color: rgba(0, 51, 0, 0.5);
+  color: #D3D3D3;
   text-shadow: 2px 2px 8px red;
   font-size: 50px; }
 
@@ -22,13 +22,13 @@ form {
   background: #f4f7f8;
   border-radius: 8px;
   background-color: black;
-  border: 10px solid rgba(0, 51, 0, 0.5); }
+  border: 10px solid rgba(5, 147, 5, 0.5); }
 
 h1 {
   margin: 0 0 30px 0;
   text-align: center;
   font-family: 'Creepster', sans-serif;
-  color: rgba(0, 51, 0, 0.5);
+  color: rgba(5, 147, 5, 0.5);
   text-shadow: 2px 2px 8px red;
   padding-top: 40px; }
 
@@ -58,7 +58,7 @@ select {
 button {
   padding: 19px 39px 18px 39px;
   color: #FFF;
-  background-color: rgba(0, 51, 0, 0.5);
+  background-color: rgba(5, 147, 5, 0.5);
   font-size: 18px;
   text-align: center;
   font-style: normal;
@@ -82,7 +82,7 @@ label {
   display: block;
   margin-bottom: 8px;
   font-size: 18px;
-  color: rgba(0, 51, 0, 0.5);
+  color: rgba(5, 147, 5, 0.5);
   text-align: center; }
 
 label.light {
@@ -95,7 +95,7 @@ label.light {
 
   .form-group {
     font-size: 18px;
-    color: rgba(0, 51, 0, 0.5);
+    color: rgba(5, 147, 5, 0.5);
     text-align: center; }
 
   ul.nav-tabs > li > a {
@@ -106,6 +106,9 @@ label.light {
   ul.nav-tabs > li.logOut {
     float: right;
     margin-left: 10px;
-    margin-right: 0; } }
+    margin-right: 0; }
+
+  span.showSignUp, span.showLogIn {
+    color: #bb0a1e; } }
 
 /*# sourceMappingURL=main.css.map */

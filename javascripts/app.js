@@ -16,8 +16,8 @@ requirejs.config({
 });
 
 requirejs(
-    ["jquery", "hbs", "bootstrap", "search", "q", "bootstrap-star-rating", "stars", "templates", "userAuth", "library", "dev"],
-    function($, Handlebars, bootstrap, search, Q, starRating, stars, templates, userAuth, library, dev) {
+    ["jquery", "hbs", "bootstrap", "search", "q", "bootstrap-star-rating", "stars", "templates", "userAuth", "library"],
+    function($, Handlebars, bootstrap, search, Q, starRating, stars, templates, userAuth, library) {
 
   //When the page loads: show log in and sign up buttons
   $("#contentDiv").html(templates.welcome);
@@ -52,20 +52,21 @@ requirejs(
       });
   });
 
-   dev.logIn()
-    .then(function(uid){
+// COMMENTING OUT DEV.LOGIN
+   // dev.logIn()
+   //  .then(function(uid){
 
-          $("#contentDiv").html(templates.main);
-          library.populateTabs();
-    });
+   //        $("#contentDiv").html(templates.main);
+   //        library.populateTabs();
+   //  });
 
 // log out
-  $(document).on('click', '.logOut', function(){
-    e.preventDefault();
-    userAuth.logOut()
-      .then(function(uid){
+  $(document).on('click', '.logOut', function(e){
+    // e.preventDefault();
+    // userAuth.logOut()
+    //   .then(function(uid){
         $("#contentDiv").html(templates.welcome);
-      })
+      // })
   });
 
    // ------- search functionality -------

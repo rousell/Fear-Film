@@ -2,8 +2,8 @@ define(["jquery", "firebase", "q"], function($, fb, Q) {
 
 	return {
 
-			signUp: function() {
-				console.log('signUp called');
+		signUp: function() {
+			console.log('signUp called');
 
 			var ref = new Firebase("https://fear-film.firebaseio.com/");
 
@@ -11,19 +11,17 @@ define(["jquery", "firebase", "q"], function($, fb, Q) {
 		 	newUser.email = $('#email').val();
 		 	newUser.passW = $("#pwd").val();
 
-		 	if(userMem.mail !== "" && userMem.passW !== ""){
-				ref.createUser({
-			    password: newUser.passW,
-			    email: newUser.email
-				}, function(error, userData) {
-					if (error) {
-						console.log('Error creating account:' + error);
-					} else {
-						console.log("You now matter in this world ", userData);
-					}
+			ref.createUser({
+			  password: newUser.passW,
+			  email: newUser.email
+			}, function(error, userData) {
+				if (error) {
+					console.log('Error creating account:' + error);
+				} else {
+					console.log("You now matter in this world ", userData);
+				}
 
-				}); //end callback
-			} //end if
+			}); //end callback
 		}, //end signup
 
 		logIn: function() {

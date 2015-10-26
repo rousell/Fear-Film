@@ -1,7 +1,7 @@
 //fonts
 @import url(https://fonts.googleapis.com/css?family=Creepster);
 
-$greenColor: rgba(0,51,0,.5); //transparent green
+$greenColor: rgba(5,147,5,.5); //transparent green
 
 
 body {
@@ -21,7 +21,7 @@ body {
 
 h1#pageTitle {
   font-family: 'Creepster', sans-serif;
-  color: $greenColor;
+  color: #D3D3D3;
   text-shadow: 2px 2px 8px red;
   font-size: 50px;
 }
@@ -133,6 +133,12 @@ ul.nav-tabs > li.logOut {
   margin-left:10px;
   margin-right:0;
 }
+
+span.showSignUp, span.showLogIn {
+  color: #bb0a1e;
+}
+
+
 
 // SLIDER BAR
 
