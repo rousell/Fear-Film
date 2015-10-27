@@ -3,11 +3,6 @@ define(["jquery"], function($) {
     splat: function() {
       $("#blood").fadeIn("easeInBounce");
       $("#blood").fadeOut(2000);
-
     }
-
-
-  }
-
-
+  };
 });
