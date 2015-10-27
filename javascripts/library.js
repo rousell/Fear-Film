@@ -4,8 +4,9 @@ define(["jquery", "firebase", "q", "lodash", "search", "templates", "stars"], fu
 
 	return {
 
-		addMovie: function(movieID) {
+		addMovie: function(movieID){
 
+      var deferred = Q.defer();
       var authData = ref.getAuth();
       var userUID = authData.uid;
 
@@ -14,8 +15,12 @@ define(["jquery", "firebase", "q", "lodash", "search", "templates", "stars"], fu
           myFilm.active = true;
           myFilm.userRating = -1;
           ref.child(userUID + "/library/" + movieID).set(myFilm);
-        });
+          buttonToHide = "#button" + movieID;
+          console.log($("#button"+movieID));
+          $(buttonToHide).hide();
+          });
 
+        return deferred.promise;
       }, //end add Movie
 
     removeMovie: function(movieID) {
@@ -70,7 +75,6 @@ define(["jquery", "firebase", "q", "lodash", "search", "templates", "stars"], fu
 		}, //end check
 
 		populateTabs: function(){
-			console.log('populate tabs');
 
 			var authData = ref.getAuth();
       var userUID = authData.uid;
@@ -92,11 +96,11 @@ define(["jquery", "firebase", "q", "lodash", "search", "templates", "stars"], fu
 
       ref.child(userUID +'/library/').on("value", function(snapshot){
 
-      	var userLibrary = snapshot.val();
-      	var userLibraryKeys = _.keys(userLibrary);
-
       		//templates
-      		var  movieTemplate = templates.basedFilms;
+      	var  movieTemplate = templates.basedFilms;
+
+        var userLibrary = snapshot.val();
+        var userLibraryKeys = _.keys(userLibrary);
 
       		//filter for unwatched movies
       		var unwatchedMovies = {},
@@ -180,12 +184,9 @@ define(["jquery", "firebase", "q", "lodash", "search", "templates", "stars"], fu
               var thisMovieRating = $(this).attr('rating');
               var thisMovieID = $(this).attr('imdbID');
 
-              if (thisMovieRating == -2) {
-                $(this).html('<button class="addFilm" omdbid="'+thisMovieID+'">Add Film</button>');
-              } else {
-                $(this).html(templates.stars);
-                stars.loadRating(thisMovieID, thisMovieRating);
-              }
+              $(this).html(templates.stars);
+              stars.loadRating(thisMovieID, thisMovieRating);
+
 
             });//end each
 

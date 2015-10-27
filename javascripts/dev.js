@@ -5,8 +5,8 @@ define(["jquery", "firebase", "q"], function($, fb, Q) {
 		logIn: function(x, y) {
 
 			var userMem = {};
-			userMem.mail = "lrtest@test.com";
-			userMem.passW = "lr123";
+			userMem.mail = "allen@test.com";
+			userMem.passW = "allen";
 
 			var ref = new Firebase("https://fear-film.firebaseio.com/");
 

@@ -1,0 +1,9 @@
+{{!-- Search Results --}}
+{{#each Search}}
+	<div class="col-md-4 col-sm-6">
+    <h2 class="hbsTitle">{{ Title }} ({{ Year }})</h2>
+    <button type="button" class="close deleteButton" omdbid="{{imdbID}}" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" >&times;</span></button>
+    <img src= "http://img.omdbapi.com/?i={{ imdbID }}&apikey=8513e0a1" class='img-responsive'>
+ 		<div id="rating{{imdbID}}" class="searchUserRating" rating="{{userRating}}" imdbID="{{imdbID}}"></div>
+  </div>
+{{/each}}

@@ -16,8 +16,8 @@ requirejs.config({
 });
 
 requirejs(
-    ["jquery", "hbs", "bootstrap", "search", "q", "bootstrap-star-rating", "stars", "templates", "userAuth", "library"],
-    function($, Handlebars, bootstrap, search, Q, starRating, stars, templates, userAuth, library) {
+    ["jquery", "hbs", "bootstrap", "search", "q", "bootstrap-star-rating", "stars", "templates", "userAuth", "library", "dev"],
+    function($, Handlebars, bootstrap, search, Q, starRating, stars, templates, userAuth, library, dev) {
 
   //When the page loads: show log in and sign up buttons
   $("#contentDiv").html(templates.welcome);
@@ -52,13 +52,13 @@ requirejs(
       });
   });
 
-// COMMENTING OUT DEV.LOGIN
-   // dev.logIn()
-   //  .then(function(uid){
+//COMMENTING OUT DEV.LOGIN
+   dev.logIn()
+    .then(function(uid){
 
-   //        $("#contentDiv").html(templates.main);
-   //        library.populateTabs();
-   //  });
+          $("#contentDiv").html(templates.main);
+          library.populateTabs();
+    });
 
 // log out
   $(document).on('click', '.logOut', function(e){
@@ -72,7 +72,8 @@ requirejs(
    // ------- search functionality -------
   $(document).on('click', "#search-by-title-button", function(e) {
     e.preventDefault();
-    var searchTemplate = templates.basedFilms;
+    var searchTemplate = templates.searchFilms;
+
     //search returns a promise with json_data from OMDB
     search.filmFinder() //returns search object from omdb
       .then(function(searchData) {
@@ -80,13 +81,13 @@ requirejs(
           .then(function(filteredSearchData){
             $('#searchResults').html(searchTemplate(filteredSearchData));
             //check user rating and add in correct display
-            $('div.userRating').each(function(){
+            $('div.searchUserRating').each(function(){
 
               var thisMovieRating = $(this).attr('rating');
               var thisMovieID = $(this).attr('imdbID');
 
               if (thisMovieRating == -2) {
-                $(this).html('<button class="addFilm" omdbid="'+thisMovieID+'">Add Film</button>');
+                $(this).html('<button class="addFilm" id="button'+thisMovieID+'" omdbid="'+thisMovieID+'">Add Film</button>');
               } else if (thisMovieRating === "") {
                 console.log($(this).parent()[0]);
                 $(this).parent()[0].remove();
@@ -115,34 +116,34 @@ requirejs(
 
         //////REDO THE WHOLE DAMN SEARCH
 
-  var searchTemplate = templates.basedFilms;
-    //search returns a promise with json_data from OMDB
-    search.filmFinder() //returns search object from omdb
-      .then(function(searchData) {
-        library.check(searchData) //adds user ratings -2 (default) -1 (not Watched) 0-10 (Watched)
-          .then(function(filteredSearchData){
-            $('#searchResults').html(searchTemplate(filteredSearchData));
-            //check user rating and add in correct display
-            $('div.userRating').each(function(){
+  // var searchTemplate = templates.basedFilms;
+  //   //search returns a promise with json_data from OMDB
+  //   search.filmFinder() //returns search object from omdb
+  //     .then(function(searchData) {
+  //       library.check(searchData) //adds user ratings -2 (default) -1 (not Watched) 0-10 (Watched)
+  //         .then(function(filteredSearchData){
+  //           $('#searchResults').html(searchTemplate(filteredSearchData));
+  //           //check user rating and add in correct display
+  //           $('div.userRating').each(function(){
 
-              var thisMovieRating = $(this).attr('rating');
-              var thisMovieID = $(this).attr('imdbID');
+  //             var thisMovieRating = $(this).attr('rating');
+  //             var thisMovieID = $(this).attr('imdbID');
 
-              if (thisMovieRating == -2) {
-                $(this).html('<button class="addFilm" omdbid="'+thisMovieID+'">Add Film</button>');
-              } else if (thisMovieRating === "") {
-                console.log($(this).parent()[0]);
-                $(this).parent()[0].remove();
-              } else {
-                $(this).html(templates.stars);
-                stars.loadRating(thisMovieID, thisMovieRating);
-              }
+  //             if (thisMovieRating == -2) {
+  //               $(this).html('<button class="addFilm" omdbid="'+thisMovieID+'">Add Film</button>');
+  //             } else if (thisMovieRating === "") {
+  //               console.log($(this).parent()[0]);
+  //               $(this).parent()[0].remove();
+  //             } else {
+  //               $(this).html(templates.stars);
+  //               stars.loadRating(thisMovieID, thisMovieRating);
+  //             }
 
-            });//end each
+  //           });//end each
 
-          });
+  //         });
 
-      });
+  //     });
         ///////REDO THE WHOLE DAMN SEARCH OVER
 
   });//end add handler
