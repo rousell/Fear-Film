@@ -1,6 +1,5 @@
 define(function(require) {
   var Q = require("q");
-  var movieTpl = require('hbs!../templates/movies');
 
   return {
     filmFinder: function() {

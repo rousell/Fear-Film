@@ -16,11 +16,13 @@ requirejs.config({
 });
 
 requirejs(
-    ["jquery", "hbs", "bootstrap", "search", "q", "bootstrap-star-rating", "stars", "templates", "userAuth", "library", "dev"],
-    function($, Handlebars, bootstrap, search, Q, starRating, stars, templates, userAuth, library, dev) {
+    ["jquery", "hbs", "bootstrap", "search", "q", "bootstrap-star-rating", "stars", "templates", "userAuth", "library", "dev", "bloodSplat"],
+    function($, Handlebars, bootstrap, search, Q, starRating, stars, templates, userAuth, library, dev, blood) {
 
   //When the page loads: show log in and sign up buttons
   $("#contentDiv").html(templates.welcome);
+
+  blood.splat();
 
   //show log in form on login button click
   $(document).on('click', '.showLogIn', function(){
@@ -71,6 +73,7 @@ requirejs(
 
    // ------- search functionality -------
   $(document).on('click', "#search-by-title-button", function(e) {
+    blood.splat();
     e.preventDefault();
     var searchTemplate = templates.searchFilms;
 
