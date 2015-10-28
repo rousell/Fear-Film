@@ -55,12 +55,12 @@ requirejs(
   });
 
 //COMMENTING OUT DEV.LOGIN
-   dev.logIn()
-    .then(function(uid){
+   // dev.logIn()
+   //  .then(function(uid){
 
-          $("#contentDiv").html(templates.main);
-          library.populateTabs();
-    });
+   //        $("#contentDiv").html(templates.main);
+   //        library.populateTabs();
+   //  });
 
 // log out
   $(document).on('click', '.logOut', function(e){
